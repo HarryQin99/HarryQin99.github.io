@@ -10,7 +10,7 @@ show_excerpts: false # set to true to show excerpts on the homepage
   
 # Moving date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-moving:
+huangyz0918/moving:
   avatar_url: "https://i.loli.net/2019/08/26/JzCLhDWPEybZr2T.jpg" # avatar in about page
   about_you: a short description about you. # short description about you in about page
   date_format: "%b %d" # date format of posts in home page
