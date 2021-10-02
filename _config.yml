@@ -10,11 +10,9 @@ plugins:
   - jekyll-feed
 
 moving:
-  about_you: A student
+  about_you: Trying to be > or == yesterday
   avatar_url: "https://i.loli.net/2021/09/19/1eVZ5plD2Ub3XBE.jpg"
   date_format: "%b %d"
   back_to: "Index"
   social_links:
-    rss: RSS
     github:  harryqin99
-    linkedin: Yongfeng Qin
