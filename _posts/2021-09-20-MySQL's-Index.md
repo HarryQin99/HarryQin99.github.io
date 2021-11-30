@@ -6,7 +6,14 @@ date: 2021-9-20 00:00
 
 
 
-## MySQL中索引结构
+[Hash索引](#Hash索引)
+[B+树索引](#B+树索引)
+[Hash索引和B+树索引有什么区别？](#Hash索引和B+树索引有什么区别？)
+[为什么不使用B树而使用B+树？](#为什么不使用B树而使用B+树？)
+[聚集索引(Cluster index)](#聚集索引(Cluster index))
+[非聚集索引(Uncluster index)](#非聚集索引(Uncluster index))
+[联合索引](#联合索引)
+[覆盖索引](#覆盖索引)
 
 ### Hash索引
 
@@ -43,7 +50,9 @@ date: 2021-9-20 00:00
 举个🌰 有一个表格User_table有三个数据，一是id，二是名字，三是年龄。因为id是主键，所以当我们创建表格时，MySQL就已经自动创建id作为键值的聚集索引。但这时候，小明有需要通过名字查找数据的需求，为了加快查找的速度，那么他对User_table中的名字创建了一个名字作为键值的索引，该索引也就是非聚集索引。
 小明输入 SELECT * FROM User_table WHERE name = Harry时，MySQL需要：通过基于名字的非聚集索引找到键值为Harry的数据，记录下该数据中的主键Id，记为id_Harry，再去到基于主键的聚集索引中查找id为id_Harry的数据，这时候就完成了一次通过名字查找表格中的所有信息，这个过程也就做回表。
 
-## 联合索引
+## 其他索引
+
+### 联合索引
 
 联合索引是一种基于多个索引列创建的非聚集索引。
 
@@ -82,7 +91,7 @@ SELECT * FROM record where id=1 ORDER BY record_date;
 
 这个sql语句用两个索引当中的哪一个都可以，但是因为语句要求对recored_date进行排序，而同时因联合索引( userid, record_date)的缘故，其索引树针对同id的数据进行了基于record_date排序，所以优化器会选择以( userid, record_date) 为索引健的B+树执行sql语句，避免了一次排序操作
 
-## 覆盖索引
+### 覆盖索引(Covering Indexes)
 
 正常的一次不基于主键的非聚集索引查询，都需要在查到相关符合条件数据的主键后，再对主键进行一次使用聚集索引的回表操作，覆盖索引的意思是，仅仅通过一个对非聚集索引B+树的查询就可以得到需要的查询记录，避免回表。
 
@@ -109,3 +118,4 @@ ALTER TABLE record ADD KEY ( userid )
 而当我们运行 ```select count(*) from record where userid=1```时就不需要回表操作了，因为仅仅通过一次对非聚集B+树的查询就可以获得userid为1数据的数量，这就是**覆盖查询**，避免了一次回表，减少了IO操作。
 
 同理可得，当我们 ```ALTER TABLE record ADD KEY ( userid, record_data)```后，再运行 ```select (userid, record_date) from record where userid=1```就不需要回表了，因为基于```( userid, record_data)```的非聚集B+树的叶子节点数据中有userid和record_data，不必再一次回表操作了。
+
