@@ -14,6 +14,7 @@ Inspired by [Hugo](https://gohugo.io/) theme, [YinYang](https://github.com/joway
 ### New Blog
 If you want to create a new blog using moving. You can follow these steps after setting up the [Jekyll](https://jekyllrb.com) environments:
 
+
 Clone this repository: 
 ```bash
 git clone https://github.com/huangyz0918/moving.git
