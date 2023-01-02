@@ -8,11 +8,13 @@ favicon: "./favicon.ico"
 remote_theme: huangyz0918/moving
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 moving:
-  about_you: Trying to be > or == yesterday
+  about_you: Developer
   avatar_url: "https://i.loli.net/2021/09/19/1eVZ5plD2Ub3XBE.jpg"
   date_format: "%b %d"
   back_to: "Index"
   social_links:
     github:  harryqin99
+
