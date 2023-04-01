@@ -49,4 +49,23 @@ layout: default
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
+<div class="ant-alert mb-0">
+  <ul>
+    <li>
+      {%- assign date_format_line = "%Y-%m-%d" -%}
+      Posted at {{ page.date | date: date_format_line }}{%- if page.last_modified_at -%}，Updated at {{ page.last_modified_at | date:
+      date_format_line }}{%- endif %}
+    </li>
+  </ul>
+
+</div>
+
+<div class="page-navigation">
+  {% if page.previous.url %}
+  <a class="prev" href="{{page.previous.url}}">&laquo; Prev</a>
+  {% endif %} {% if page.next.url %}
+  <a class="next" href="{{page.next.url}}">Next &raquo;</a>
+  {% endif %}
+</div>
+
 {%- include giscus.html -%}
