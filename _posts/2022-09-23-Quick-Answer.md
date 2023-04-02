@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 🗂 【Interview】Question with answer - 2022
+title: 🗂 【Daily】Question with answer - 2022
 date: 2022-09-23 00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 🗂 【Interview】Question with answer - 2023
+title: 🗂 【Daily】Question with answer - 2023
 date: 2023-03-04 00:00
 ---
 
