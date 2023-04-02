@@ -46,7 +46,7 @@ func main() {
 	log.Println("Shut down")
 }
 
-# Function which to keep sending get request to url provided and with 10 seconds sleep before next request
+// Function which to keep sending get request to url provided and with 10 seconds sleep before next request
 func pingUrl(url string) {
 	for {
 		_, err := http.Get(url)
