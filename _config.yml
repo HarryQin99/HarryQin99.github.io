@@ -3,6 +3,7 @@ author: QYF
 email: harryqinyf@outlook.com
 description: Just a blog.
 favicon: "./favicon.ico"
+url: https://leafy-pastelito-ae786e.netlify.app/
 
 # Build settings
 remote_theme: huangyz0918/moving
